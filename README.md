@@ -2,9 +2,11 @@
 
 This workshop is a hands-on lab for getting started building a cloud connected IoT device using the [MXChip Iot DevKit prototyping board](http://mxchip.com/az3166) and the [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=iothub-github-jabenn).
 
-## What is the MXChip?
+The final project that will be created is an internet connected temperature sensor, with a warning light if the temperature is above a certain threshold. The temperature will be reported to Azure IoT Hub and stored in a table. This value can be retrieved via an API built using Azure functions. To control the LED, a threshold will be set using another Azure Function API, and this will sync to the device using a [device twin](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins/?WT.mc_id=iothub-github-jabenn).
 
-The MXChip is an Arduino compatible prototyping board. It is an all-in-one board with a cortex-M microcontroller, WiFi, an array of sensors including temperature and pressure, LEDs, buttons, a screen, a microphone and headphone port. It is also designed to easily talk to  Azure IoT Hub.
+## What is the MXChip
+
+The MXChip is an Arduino compatible prototyping board. It is an all-in-one board with a cortex-M micro-controller, WiFi, an array of sensors including temperature and pressure, LEDs, buttons, a screen, a microphone and headphone port. It is also designed to easily talk to  Azure IoT Hub.
 
 ![The MXChip board with a list of components](./Images/MXChipBoard.png)
 
@@ -67,4 +69,4 @@ The steps for the workshop are in the [Steps](./Steps) folder.
 
 1. [Configure the MXChip board](./Steps/1.ConfigureTheBoard.md)
 2. [Configure Visual Studio Code](./Steps/2.ConfigureVSCode.md)
-3. [Making an LED flash](./Steps/3.MakingAnLEDFlash.md)
+3. [Showing the temperature](./Steps/3.ShowingTheTemperature.md)
