@@ -30,10 +30,28 @@ This workshop is based on the MXChip Iot DevKit, so you will need to purchase on
 
 ### Software
 
-You will need to install a few tools to be able to program this board:
+You will need to install a few applications and tools to be able to program this board:
 
 * [Visual Studio Code](https://code.visualstudio.com/Download/?WT.mc_id=iothub-github-jabenn)
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software) - **NOTE** On Windows DO NOT install using the Windows store, instead use the *Windows Installer, for Windows XP and up*.
+* [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local/?WT.mc_id=iothub-github-jabenn)
+* The [ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html) is the USB interface that IoT DevKit uses to communicate with your development machine. Follow the platform specific steps to allow the machine access to your device.
+
+  * Windows: Download and install USB driver from [STMicro](http://www.st.com/en/development-tools/stsw-link009.html).
+
+  * macOS: No driver is required for macOS.
+
+  * Linux: Run the following in terminal and logout and login for the group change to take effect:
+
+    ```bash
+    # Copy the default rules. This grants permission to the group 'plugdev'
+    sudo cp ~/.arduino15/packages/AZ3166/tools/openocd/0.10.0/linux/contrib/60-openocd.rules /etc/udev/rules.d/
+    sudo udevadm control --reload-rules
+
+    # Add yourself to the group 'plugdev'
+    # Logout and log back in for the group to take effect
+    sudo usermod -a -G plugdev $(whoami)
+    ```
 
 ### Azure account
 
@@ -41,7 +59,7 @@ To use Azure IoT Hub you will need an Azure subscription. If you don't have a su
 
 At the time of writing the free account will give you US$200 of free credit to spend on what you like, 12 months of free services, plus a load of services that have tiers that are always free.
 
-For this workshop you can use the free tier of IoT Hub.
+For this workshop you can use the free tier of IoT Hub. If you already have an Azure account you can use this, using a free tier IoT Hub.
 
 ## The workshop
 
@@ -49,3 +67,4 @@ The steps for the workshop are in the [Steps](./Steps) folder.
 
 1. [Configure the MXChip board](./Steps/1.ConfigureTheBoard.md)
 2. [Configure Visual Studio Code](./Steps/2.ConfigureVSCode.md)
+3. [Making an LED flash](./Steps/3.MakingAnLEDFlash.md)
