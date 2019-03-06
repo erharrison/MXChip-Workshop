@@ -65,6 +65,8 @@ For this workshop you can use the free tier of IoT Hub. If you already have an A
 
 ## The workshop
 
+This workshop is implemented in both C and C#. The code running on the MXChip is in C, the code for the Azure Functions is in C#.
+
 The steps for the workshop are in the [Steps](./Steps) folder.
 
 1. [Configure the MXChip board](./Steps/1.ConfigureTheBoard.md)
