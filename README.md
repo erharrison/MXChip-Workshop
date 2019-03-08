@@ -1,8 +1,8 @@
 # MXChip Workshop
 
-This workshop is a hands-on lab for getting started building a cloud connected IoT device using the [MXChip Iot DevKit prototyping board](http://mxchip.com/az3166) and the [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=iothub-github-jabenn).
+This workshop is a hands-on lab for getting started building a cloud connected IoT device using the [MXChip Iot DevKit prototyping board](http://mxchip.com/az3166) and the [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=mxchipworkshop-github-jabenn).
 
-The final project that will be created is an internet connected temperature sensor, with a warning light if the temperature is above a certain threshold. The temperature will be reported to Azure IoT Hub and stored in a table. This value can be retrieved via an API built using Azure functions. To control the LED, a threshold will be set using another Azure Function API, and this will sync to the device using a [device twin](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins/?WT.mc_id=iothub-github-jabenn).
+The final project that will be created is an internet connected temperature sensor, with a warning light if the temperature is above a certain threshold. The temperature will be reported to Azure IoT Hub and stored in a [Cosmos DB collection](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=mxchipworkshop-github-jabenn). This value can be retrieved via an API built using [Azure functions](https://azure.microsoft.com/services/functions/?WT.mc_id=mxchipworkshop-github-jabenn). To control the LED, a threshold will be set using another Azure Function API, and this will sync to the device using a [device twin](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins/?WT.mc_id=mxchipworkshop-github-jabenn).
 
 ## What is the MXChip
 
@@ -14,13 +14,13 @@ The MXChip is an Arduino compatible prototyping board. It is an all-in-one board
 
 Azure IoT Hub is an Azure service that allows you to connect, monitor and manage IoT devices at scale, from a few to billions. IoT Hub is an open and flexible cloud platform as a service that supports open-source SDKs and multiple protocols.
 
-You can read more at [azure.microsoft.com/services/iot-hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=iothub-github-jabenn)
+You can read more at [azure.microsoft.com/services/iot-hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=mxchipworkshop-github-jabenn)
 
 ## Getting started
 
 Before you can work through this lab, you will need some hardware, software and an Azure account.
 
-This workshop has been tested on Windows 10 and MacOS Mojave. It should also work on Ubuntu, but this [hasn't been validated yet](https://github.com/jimbobbennett/MXChip-Workshop/issues/1).
+This workshop has been tested on Windows 10 and macOS Mojave. It should also work on Ubuntu, but this [hasn't been validated yet](https://github.com/jimbobbennett/MXChip-Workshop/issues/1).
 
 ### Hardware
 
@@ -34,10 +34,10 @@ This workshop is based on the MXChip Iot DevKit, so you will need to purchase on
 
 You will need to install a few applications and tools to be able to program this board:
 
-* [Visual Studio Code](https://code.visualstudio.com/Download/?WT.mc_id=iothub-github-jabenn)
+* [Visual Studio Code](https://code.visualstudio.com/Download/?WT.mc_id=mxchipworkshop-github-jabenn)
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software) - **NOTE** On Windows DO NOT install using the Windows store, instead use the *Windows Installer, for Windows XP and up*.
-* [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local/?WT.mc_id=iothub-github-jabenn)
-* The [ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html) is the USB interface that IoT DevKit uses to communicate with your development machine. Follow the platform specific steps to allow the machine access to your device.
+* [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local/?WT.mc_id=mxchipworkshop-github-jabenn)
+* You may need to install a USB driver or configure USB support to communicate with the MXChip.
 
   * Windows: Download and install USB driver from [STMicro](http://www.st.com/en/development-tools/stsw-link009.html).
 
@@ -57,7 +57,7 @@ You will need to install a few applications and tools to be able to program this
 
 ### Azure account
 
-To use Azure IoT Hub you will need an Azure subscription. If you don't have a subscription you can sign up for free at [azure.microsoft.com/free/](https://azure.microsoft.com/free/?WT.mc_id=iothub-github-jabenn).
+To use Azure IoT Hub you will need an Azure subscription. If you don't have a subscription you can sign up for free at [azure.microsoft.com/free/](https://azure.microsoft.com/free/?WT.mc_id=mxchipworkshop-github-jabenn).
 
 At the time of writing the free account will give you US$200 of free credit to spend on what you like, 12 months of free services, plus a load of services that have tiers that are always free.
 
@@ -65,11 +65,29 @@ For this workshop you can use the free tier of IoT Hub. If you already have an A
 
 ## The workshop
 
-This workshop is implemented in both C and C#. The code running on the MXChip is in C, the code for the Azure Functions is in C#. The code does not have any error handling, it is intended to be as terse as possible to help illustrate how to program the board as opposed to being production ready code.
+This workshop is implemented in both C and C#. The code running on the MXChip is in C, the code for the Azure Functions is in C#. The code does not have any error handling, it is intended to be as short as possible to help illustrate how to program the board as opposed to being production ready code.
 
 The steps for the workshop are in the [Steps](./Steps) folder.
 
 1. [Configure the MXChip board](./Steps/1.ConfigureTheBoard.md)
 2. [Configure Visual Studio Code](./Steps/2.ConfigureVSCode.md)
-3. [Showing the temperature](./Steps/3.ShowingTheTemperature.md)
-4. [Sending the temperature to Azure IoT Hub](./4.SendingTheTemperature.md)
+3. [Show the temperature](./Steps/3.ShowingTheTemperature.md)
+4. [Send the temperature to Azure IoT Hub](./4.SendingTheTemperature.md)
+5. [Store the temperature using Azure Functions and Cosmos DB](./Steps/5.StoreTheTemperature.md)
+6. [Expose the temperature using Azure Functions](./Steps/6.ExposeTheTemperature.md)
+7. [Configure the LED colour threshold using Device Twins](7.ControlTheLEDThreshold.md)
+
+## Next steps
+
+This workshop is only a taster to get started programming the MXChip board and connecting it to the cloud using Azure Functions and Device Twins.
+
+### Extend the sample
+
+#### Internet-connected fan
+If you want to build more, check out [this sample](https://github.com/jimbobbennett/InternetConnectedFan) adding a fan to the set up, turning this on and off as well as controlling the LED when the temperature crosses the threshold.
+
+![A fan connected to an MXChip](https://github.com/jimbobbennett/InternetConnectedFan/raw/master/Images/PhotoOfFinalHardware.jpg)
+
+### Host this workshop
+
+Please get in touch if you would like to host this workshop at your meetup group or community event. There are Microsoft Cloud Advocates [all around the world](https://developer.microsoft.com/advocates/index.html?WT.mc_id=mxchipworkshop-github-jabenn) who can host this event.
