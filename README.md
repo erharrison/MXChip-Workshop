@@ -69,6 +69,8 @@ For this workshop you can use the free tier of IoT Hub. If you already have an A
 
 This workshop is implemented in both C and C#. The code running on the MXChip is in C, the code for the Azure Functions is in C#. The code does not have any error handling, it is intended to be as short as possible to help illustrate how to program the board as opposed to being production ready code.
 
+### The steps
+
 The steps for the workshop are in the [Steps](./Steps) folder.
 
 1. [Configure the MXChip board](./Steps/1.ConfigureTheBoard.md)
@@ -79,6 +81,12 @@ The steps for the workshop are in the [Steps](./Steps) folder.
 6. [Expose the temperature using Azure Functions](./Steps/6.ExposeTheTemperature.md)
 7. [Configure the LED colour threshold using Device Twins](./Steps/7.ControlTheLEDThreshold.md)
 8. [Clean up](./Steps/8.CleanUp.md)
+
+### The code
+
+You can find the code created in this workshop in the [Code](./Code) folder. This is provided for reference only, you don't need to use this sample code as everything you need to write is covered in the workshop.
+
+* [Final](./Code/Final) - the final code you will create once you complete this workshop.
 
 ## Next steps
 
