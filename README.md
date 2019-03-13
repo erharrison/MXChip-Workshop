@@ -57,7 +57,9 @@ You will need to install a few applications and tools to be able to program this
 
 ### Azure account
 
-To use Azure IoT Hub you will need an Azure subscription. If you don't have a subscription you can sign up for free at [azure.microsoft.com/free/](https://azure.microsoft.com/free/?WT.mc_id=mxchipworkshop-github-jabenn).
+To use Azure IoT Hub you will need an Azure subscription. If you don't have a subscription you can sign up for free at [azure.microsoft.com/free/](https://azure.microsoft.com/free/?WT.mc_id=mxchipworkshop-github-jabenn). You will need a credit card for verification purposes only, you will not be billed unless you decide to upgrade your account to a paid offering.
+
+If you are a student aged 18 and up, or teacher and have an email address from an academic institution, you can sign up for the free Azure for Students offer at [azure.microsoft.com/free/students](https://azure.microsoft.com/free/students/?WT.mc_id=mxchipworkshop-github-jabenn). This gives you the same services and credit as the free account, but you don't need a credit card.
 
 At the time of writing the free account will give you US$200 of free credit to spend on what you like, 12 months of free services, plus a load of services that have tiers that are always free.
 
@@ -72,10 +74,11 @@ The steps for the workshop are in the [Steps](./Steps) folder.
 1. [Configure the MXChip board](./Steps/1.ConfigureTheBoard.md)
 2. [Configure Visual Studio Code](./Steps/2.ConfigureVSCode.md)
 3. [Show the temperature](./Steps/3.ShowingTheTemperature.md)
-4. [Send the temperature to Azure IoT Hub](./4.SendingTheTemperature.md)
+4. [Send the temperature to Azure IoT Hub](./Steps/4.SendingTheTemperature.md)
 5. [Store the temperature using Azure Functions and Cosmos DB](./Steps/5.StoreTheTemperature.md)
 6. [Expose the temperature using Azure Functions](./Steps/6.ExposeTheTemperature.md)
-7. [Configure the LED colour threshold using Device Twins](7.ControlTheLEDThreshold.md)
+7. [Configure the LED colour threshold using Device Twins](./Steps/7.ControlTheLEDThreshold.md)
+8. [Clean up](./Steps/8.CleanUp.md)
 
 ## Next steps
 
@@ -84,10 +87,11 @@ This workshop is only a taster to get started programming the MXChip board and c
 ### Extend the sample
 
 #### Internet-connected fan
+
 If you want to build more, check out [this sample](https://github.com/jimbobbennett/InternetConnectedFan) adding a fan to the set up, turning this on and off as well as controlling the LED when the temperature crosses the threshold.
 
 ![A fan connected to an MXChip](https://github.com/jimbobbennett/InternetConnectedFan/raw/master/Images/PhotoOfFinalHardware.jpg)
 
 ### Host this workshop
 
-Please get in touch if you would like to host this workshop at your meetup group or community event. There are Microsoft Cloud Advocates [all around the world](https://developer.microsoft.com/advocates/index.html?WT.mc_id=mxchipworkshop-github-jabenn) who can host this event.
+Please get in touch if you would like to host this workshop at your meetup group or community event. There are Microsoft Cloud Advocates [all around the world](https://developer.microsoft.com/advocates/index.html?WT.mc_id=mxchipworkshop-github-jabenn) who can help host this event.
