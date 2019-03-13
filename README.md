@@ -100,6 +100,10 @@ If you want to build more, check out [this sample](https://github.com/jimbobbenn
 
 ![A fan connected to an MXChip](https://github.com/jimbobbennett/InternetConnectedFan/raw/master/Images/PhotoOfFinalHardware.jpg)
 
+### Try some more samples
+
+There is a growing catalog of projects from both the Microsoft IoT teams and the community available at [microsoft.github.io/azure-iot-developer-kit/docs/projects/](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
+
 ### Host this workshop
 
 Please get in touch if you would like to host this workshop at your meetup group or community event. There are Microsoft Cloud Advocates [all around the world](https://developer.microsoft.com/advocates/index.html?WT.mc_id=mxchipworkshop-github-jabenn) who can help host this event.
