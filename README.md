@@ -36,6 +36,7 @@ You will need to install a few applications and tools to be able to program this
 
 * [Visual Studio Code](https://code.visualstudio.com/Download/?WT.mc_id=mxchipworkshop-github-jabenn)
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software) - **NOTE** On Windows DO NOT install using the Windows store, instead use the *Windows Installer, for Windows XP and up*.
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local/?WT.mc_id=mxchipworkshop-github-jabenn)
 * You may need to install a USB driver or configure USB support to communicate with the MXChip.
 
