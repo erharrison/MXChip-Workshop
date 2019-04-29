@@ -1,0 +1,20 @@
+{
+    "folders": [
+        {
+            "path": "Device"
+        },
+        {
+            "path": "Functions"
+        }
+    ],
+    "settings": {
+        "IoTWorkbench.BoardId": "devkit",
+        "IoTWorkbench.DevicePath": "Device",
+        "IoTWorkbench.FunctionPath": "Functions",
+        "IoTWorkbench.iothubConnectionString": "HostName=JimsTempSensorMarch2019.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=TVW00eOGJswsQLwKWFSr1BsIaYKt1quQw4e6RAryiPE=",
+        "IoTWorkbench.eventHubConnectionString": "Endpoint=sb://iothub-ns-jimstempse-1382567-57cda253f0.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=TVW00eOGJswsQLwKWFSr1BsIaYKt1quQw4e6RAryiPE=",
+        "IoTWorkbench.eventHubConnectionPath": "jimstempsensormarch2019",
+        "IoTWorkbench.iothubDeviceConnectionString": "HostName=JimsTempSensorMarch2019.azure-devices.net;DeviceId=JimsMXChip;SharedAccessKey=Oxx/2mqjzxL5Kj6SG9A2HY9heYC4GmWBfkSgfW59PQg=",
+        "IoTWorkbench.functionAppId": "/subscriptions/731e7515-1223-42a7-827c-411761d99fdc/resourceGroups/temperaturesensor/providers/Microsoft.Web/sites/JimsTemperatureSensorFunctionApp"
+    }
+}
