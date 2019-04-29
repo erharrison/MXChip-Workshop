@@ -48,8 +48,6 @@ To use this device with Azure IoT Hub you will need to configure an IoT Hub serv
 * The command palette will show the steps again, with the arrow pointing to *Azure Functions*. Press enter to continue.
 * Enter a globally unique name for the function app.
 * Select the *.NET* runtime.
-* Select *+ Create new storage account* and use the default name.
-* Select the Azure region closes to your physical location to create the Azure Function app in.
 * The function app will be provisioned, with a pop up showing progress.
 
 ## Send messages from the MXChip to the IoT Hub
@@ -143,18 +141,7 @@ Each IoT Hub has a connection string that can be used by devices to connect. Ins
 
 ### See the messages
 
-You can see telemetry around the messages from the [Azure Portal](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn).
-
-* Head to [portal.azure.com](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn), and log in to your Azure account.
-* Search for your IoT Hub using the search box at the top of the portal
-  
-  ![Searching for the IoT Hub in the portal](../Images/SearchinThePortalForIoTHub.png)
-
-* On the *Overview* page you will see data from the hub, including how many messages have been received. You will also see graphs showing messages over time.
-  
-  ![A graph showing device to cloud messages](../Images/IoTHubD2CMessageGraph.png)
-
-You can also see a live stream of the messages, including the contents from Visual Studio Code.
+You can see a live stream of the messages, including the contents from Visual Studio Code.
 
 * Open the *Explorer* and locate the *AZURE IOT HUB DEVICES* section.
 * Expand this and right click on your device.
@@ -165,6 +152,17 @@ You can also see a live stream of the messages, including the contents from Visu
 * The messages will stream into the *OUTPUT* pane, showing the values sent with each message.
   
   ![A D2C message in the output pane showing the date, time and temperature values](../Images/D2CMessage.png)
+
+You can also see telemetry around the messages from the [Azure Portal](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn). This telemetry are usually delayed by a few minutes.
+
+* Head to [portal.azure.com](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn), and log in to your Azure account.
+* Search for your IoT Hub using the search box at the top of the portal
+  
+  ![Searching for the IoT Hub in the portal](../Images/SearchinThePortalForIoTHub.png)
+
+* On the *Overview* page you will see data from the hub, including how many messages have been received. You will also see graphs showing messages over time.
+  
+  ![A graph showing device to cloud messages](../Images/IoTHubD2CMessageGraph.png)
 
 <hr>
 
@@ -248,4 +246,4 @@ void loop() {
 
 <hr>
 
-In this step you connected the MXChip to WiFi and Azure IoT Hub, sending the temperature data over MQTT. Now move on to the [next step](./5.StoreTheTemperature.md) where you will take the temperature and save it to a Cosmos DB collection.
+In this step you connected the MXChip to WiFi and Azure IoT Hub, sending the temperature data over MQTT. Now move on to the [next step](./StoreTheTemperature.md) where you will take the temperature and save it to a Cosmos DB collection.
