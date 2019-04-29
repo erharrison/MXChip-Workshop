@@ -119,12 +119,6 @@ Once the SDK has been installed, it can be used to interact with Device Twins. T
 
 The function app will be deployed, and this should take a few seconds.
 
-### Restart the Azure Function
-
-* Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn)
-* Navigate to your new Azure Function app using the search bar
-* Click the **Restart** button from the *Overview* page.
-
 ### Add support for Device Twins to the MXChip
 
 When the MXChip first connects to the IoT Hub, the latest Device Twin is downloaded. Every time the Device Twin is updated by the registry manager, the new JSON document is sent over MQTT to the MXChip. The device code needs to detect this initial document and all changes, and handle the new JSON.

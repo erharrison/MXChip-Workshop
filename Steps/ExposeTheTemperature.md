@@ -77,12 +77,6 @@ Azure Functions can be [triggered by HTTP requests](https://docs.microsoft.com/a
 
 The function app will be deployed, and this should take a few seconds.
 
-### Restart the Azure Function
-
-* Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn)
-* Navigate to your new Azure Function app using the search bar
-* Click the **Restart** button from the *Overview* page.
-
 ## Test the API
 
 * From a web browser, open `https://<your URL>/api/temperature/<devicename>` where `<your URL>` is the URL of your Azure Function app and `<devicename>` is the name you gave your IoT device. You can find the URL of the Azure Function app from the *Overview* page and it will be in the format `<your function app name>.azurewebsites.net`. If you need to double check the IoT Device name, you can get it from the document in the Cosmos DB collection.
