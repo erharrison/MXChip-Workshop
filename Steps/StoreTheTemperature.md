@@ -133,8 +133,6 @@ By now the Cosmos DB account should be created.
 
 * Leave the initial throughput as 400. This is the lowest tier and is free with the Azure free account.
 
-* Click *OK*
-
 Once created, you will be able to see the new collection in the *COSMOS DB* panel in the *Azure* tab.
 
 ## Deploy the Azure Function app
@@ -150,6 +148,8 @@ Once created, you will be able to see the new collection in the *COSMOS DB* pane
 * Right-click on the account you just created and select *Copy Connection String*.
 
 * Expand the *FUNCTIONS* section of the *Azure* tab
+
+* Expand your subscription.
 
 * Expand your Azure Functions app
 
@@ -168,12 +168,6 @@ Once created, you will be able to see the new collection in the *COSMOS DB* pane
   ![The dialog box asking if you want to overwrite the existing Azure Functions app](../Images/OverwriteFunctionApp.png)
 
 The function app will be deployed, and this should take a few seconds.
-
-### Restart the Azure Function
-
-* Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn)
-* Navigate to your new Azure Function app using the search bar
-* Click the **Restart** button from the *Overview* page.
 
 ## Monitoring the data
 
