@@ -1,6 +1,6 @@
-# 3 - Show the temperature
+# Show the temperature
 
-In the [previous step](./2.ConfigureVSCode.md) you configured Visual Studio Code. In this step you will write your first piece of software to run on the MXChip board. The code will query the temperature and show it on the on-board display. It will also light up the LED either blue or red depending on the temperature.
+In the [previous step](./ConfigureVSCode.md) you configured Visual Studio Code. In this step you will write your first piece of software to run on the MXChip board. The code will query the temperature and show it on the on-board display. It will also light up the LED either blue or red depending on the temperature.
 
 ## Create an Arduino project
 
@@ -216,4 +216,4 @@ void loop() {
 
 <hr>
 
-In this step you wrote your first piece of code for the MXChip board, detecting the temperature using an onboard sensor and displaying it using a screen and LED. Now move on to the [next step](./4.SendingTheTemperature.md) where you will connect this board to Azure IoT Hub and send the temperature.
+In this step you wrote your first piece of code for the MXChip board, detecting the temperature using an onboard sensor and displaying it using a screen and LED. Now move on to the [next step](./SendingTheTemperature.md) where you will connect this board to Azure IoT Hub and send the temperature.

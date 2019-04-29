@@ -1,6 +1,6 @@
-# 8 - Clean up
+# Clean up
 
-In the [previous step](./7.ControlTheLEDThreshold.md) you wrote an Azure Function to configure the threshold for the LED colour using a Device Twin. In this step you will clean up the resources you have used.
+In the [previous step](./ControlTheLEDThreshold.md) you wrote an Azure Function to configure the threshold for the LED colour using a Device Twin. In this step you will clean up the resources you have used.
 
 ## Delete the resource group
 

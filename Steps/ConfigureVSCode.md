@@ -1,6 +1,6 @@
-# 2 - Configure Visual Studio Code
+# Configure Visual Studio Code
 
-In the [previous step](./1.ConfigureTheBoard.md) you configured the MXChip board. In this step you configure Visual Studio Code ready to work with the board.
+In the [previous step](./ConfigureTheBoard.md) you configured the MXChip board. In this step you configure Visual Studio Code ready to work with the board.
 
 Visual Studio Code can be used to code the MXChip, including pushing the compiled code to the board by automating the Arduino IDE. It can also be used to publish code to Azure and configure services.
 
@@ -17,6 +17,12 @@ Visual Studio Code has a wealth of extensions that provide different capabilitie
 * Search for the *Azure Functions* extension and install it.
 
   ![The Azure Functions extension install page](../Images/InstallFuncExtension.png)
+
+* Search for the *Azure Cosmos DB* extension and install it.
+
+  ![The Azure Cosmos DB extension install page](../Images/InstallCosmosExtension.png)
+
+  You will need to restart Visual Studio Code after installing this extension.
 
 * Search for the *Arduino* extension and install it.
 
@@ -68,4 +74,4 @@ Visual Studio Code has a wealth of extensions that provide different capabilitie
 
 <hr>
 
-In this step you installed a number of extension in Visual Studio Code for .NET, Azure Functions and IoT development, and configured it to talk to the MXChip board. Now move on to the [next step](./3.ShowingTheTemperature.md) where you will write your first piece of software to run on the MXChip board.
+In this step you installed a number of extension in Visual Studio Code for .NET, Azure Functions and IoT development, and configured it to talk to the MXChip board. Now move on to the [next step](./ShowingTheTemperature.md) where you will write your first piece of software to run on the MXChip board.

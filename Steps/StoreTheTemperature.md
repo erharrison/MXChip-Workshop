@@ -1,6 +1,6 @@
-# 5 - Store the temperature using Azure Functions and Cosmos DB
+# Store the temperature using Azure Functions and Cosmos DB
 
-In the [previous step](./4.SendingTheTemperature.md) you configured an Azure IoT Hub service and device, wrote some more code in C to run on the MXChip board. This code connected the device to WiFI and the IoT Hub, and sent a message containing the temperature and threshold. In this step you will create an Azure Functions back end to take these messages and save the values into a [Cosmos DB collection](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=mxchipworkshop-github-jabenn).
+In the [previous step](./SendingTheTemperature.md) you configured an Azure IoT Hub service and device, wrote some more code in C to run on the MXChip board. This code connected the device to WiFI and the IoT Hub, and sent a message containing the temperature and threshold. In this step you will create an Azure Functions back end to take these messages and save the values into a [Cosmos DB collection](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=mxchipworkshop-github-jabenn).
 
 ## Store the temperature
 
@@ -8,15 +8,19 @@ When a message is received by the IoT Hub, the temperature needs to be extracted
 
 ### Create a Cosmos DB account to store temperatures
 
-* From the [Azure Portal](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn), click *+ Create a resource* from the sidebar.
-* Search for *Azure Cosmos DB*, then click **Create**.
-* Select the existing `temperaturesensor` resource group that you used for the IoT Hub.
-  > It is important to use the same resource group for the Cosmos DB that you created when provisioning the IoT Hub. When you have finished with this project you will need to delete the resources you have created to avoid using up credit or free service limits, and this is easier to do if everything is in one resource group
-* Give the instance a unique name, it can be the same name you used for the IoT Hub, although you are limited to lowercase letters and numbers, and the name has to be no more than 31 characters.
-* Make sure the API is set to Core (SQL)
-* Select a region closest to you
-* Leave the defaults for the other fields
-* Click **Review + create**, then **Create**
+* From the Visual Studio Code command palette, select *Cosmos DB: Create Account*
+
+* Select the Azure subscription you want to use.
+
+* Give your account a name. This only needs to be unique to you, and needs to be between 3 and 31 characters and only contain letters, numbers or '-'.
+
+* Select an API for the Cosmos DB account. Cosmos DB has a number of ways you can access the data, some mimicking other databases. For this workshop, select *SQL (Document DB)*.
+
+* Select the `temperaturesensor` resource group that was created when you created the IoT Hub.
+
+* Select a location for the Cosmos DB resource. Choose a location closest to you.
+
+* The Cosmos DB resource will be created, and a dialog will appear showing the progress.
 
 It will take a few minutes for this to be provisioned. Whilst this is happening you can build the API.
 
@@ -55,12 +59,25 @@ Inside this file is a method called `Run`, decorated with a `FunctionName` attri
 
 By now the Cosmos DB account should be created.
 
-* From the Azure Portal, open the Cosmos DB account using the **Go to resource** button on the deployment page.
-* Click **+ Add Collection** from the *Overview* page.
-* Set the *Database Id* to be `IoTData` and the *Collection Id* to be `Temperatures`.
-* Set the *Partition key* as `/Type` (the forward slash at the start will be added for you if you don't enter it).
-* Set the *Throughput* to be `400`. This is the lowest tier and is free with the Azure free account.
+* From Visual Studio Code, select the *Azure* tab.
+
+* Expand the *COSMOS DB* section.
+
+* Expand your subscription.
+
+* Right-click on the account you just created and select *Create Database*.
+
+* Name the database `IoTData`.
+
+* Name the collection `Temperatures`.
+
+* Leave the partition key blank.
+
+* Leave the initial throughput as 400. This is the lowest tier and is free with the Azure free account.
+
 * Click *OK*
+
+Once created, you will be able to see the new collection in the *COSMOS DB* panel in the *Azure* tab.
 
 ### Connect the Azure Function to the Cosmos DB collection
 
@@ -86,7 +103,6 @@ Once the SDK is installed and in use by the project, the Azure Function can be w
     public string Id {get; set;}
     public double Temperature {get; set;}
     public double Threshold {get; set;}
-    public string Type {get; set;}
   }
   ```
 
@@ -110,15 +126,14 @@ Once the SDK is installed and in use by the project, the Azure Function can be w
 
   The `CosmosDBConnection` connection string setting will be retrieved from the Azure Function application settings, which will be set later in this step.
 
-* Set the output parameter to be a new `TemperatureItem` using the values from the message, and a `Type` of `"Latest"`. This will create a document keyed off the device id and insert it into the collection. Subsequent messages will update the document in the collection.
+* Set the output parameter to be a new `TemperatureItem` using the values from the message. This will create a document keyed off the device id and insert it into the collection. Subsequent messages will update the document in the collection.
 
   ```cs
   output = new TemperatureItem
   {
     Temperature = temperature,
     Threshold = threshold,
-    Id = deviceId,
-    Type = "Latest"
+    Id = deviceId
   };
   ```
 
@@ -126,16 +141,23 @@ Once the SDK is installed and in use by the project, the Azure Function can be w
 
 ### Configure the Cosmos DB connection string in the Azure Function app
 
-* Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=mxchipworkshop-github-jabenn)
-* Navigate to the new Cosmos DB account.
-* Select *Settings->Keys* from the side bar, and copy the *PRIMARY CONNECTION STRING* using the blue **Copy** button.
-  
-  ![The connection strings for the Cosmos DB account](../Images/CosmosDBCOnnectionString.png)
+* From Visual Studio Code, select the *Azure* tab.
 
-* Navigate to your new Azure Function app using the search bar
-* Select *Application Settings* from the *Configured features* section of the *Overview* page.
-* Add a new setting to the *Application Settings* section with a name of `cosmosDBConnectionString` and the connection string you copied from the Cosmos DB account.
-* Click the *Save* button at the top of the page
+* Expand the *COSMOS DB* section.
+
+* Expand your subscription.
+
+* Right-click on the account you just created and select *Copy Connection String*.
+
+* Expand the *FUNCTIONS* section of the *Azure* tab
+
+* Expand your Azure Functions app
+
+* Right-click on the *Application Settings* node and select *Add New Setting...*
+
+* Set the key to be `cosmosDBConnectionString`
+
+* Paste the copied Cosmos DB connection string as the value
 
 ### Deploy the code
 
@@ -157,11 +179,17 @@ The function app will be deployed, and this should take a few seconds.
 
 Once the Azure Function app is restarted, the events will flow into the IoT Hub trigger, and get stored in the Cosmos DB collection.
 
-* Navigate to the Cosmos DB account on the Azure portal.
-* Select *Data Explorer* from the side bar.
+* From Visual Studio Code, select the *Azure* tab.
+
+* Expand the *COSMOS DB* section.
+
+* Expand your subscription.
+
 * Expand the *IoTData* database and *Temperatures* collection.
-* Select the *Documents* node. A filtering control with a list of documents will appear containing a single entry.
-* Click the entry to see the temperature and threshold.
+
+* Expand the *Documents* node.
+
+* Click on an entry under this node to see the temperature and threshold.
 
   ![The document in the CosmosDB data explorer](../Images/DocumentInCosmos.png)
 
@@ -186,7 +214,6 @@ namespace IoTWorkbench
   {
     [JsonProperty("id")]
     public string Id {get; set;}
-    public string Type {get; set;}
     public double Temperature {get; set;}
     public double Threshold {get; set;}
   }
@@ -212,8 +239,7 @@ namespace IoTWorkbench
       {
         Temperature = temperature,
         Threshold = threshold,
-        Id = deviceId,
-        Type = "Latest"
+        Id = deviceId
       };
     }
   }
@@ -222,4 +248,4 @@ namespace IoTWorkbench
 
 <hr>
 
-In this step you added an Azure Function that was triggered by the messages from the MXChip, and used this to save the temperature to a Cosmos DB Collection. Now move on to the [next step](./6.ExposeTheTemperature.md) where you will expose the temperature data over a REST API.
+In this step you added an Azure Function that was triggered by the messages from the MXChip, and used this to save the temperature to a Cosmos DB Collection. Now move on to the [next step](./ExposeTheTemperature.md) where you will expose the temperature data over a REST API.

@@ -1,6 +1,6 @@
-# 6 - Expose the temperature using Azure Functions
+# Expose the temperature using Azure Functions
 
-In the [previous step](./5.StoreTheTemperature.md) you wrote an Azure Function that was triggered by messages send from the MXChip, and stored the temperature values in Cosmos DB. In this step you will create another Azure Function to expose this data over a REST endpoint.
+In the [previous step](./StoreTheTemperature.md) you wrote an Azure Function that was triggered by messages send from the MXChip, and stored the temperature values in Cosmos DB. In this step you will create another Azure Function to expose this data over a REST endpoint.
 
 ## Build a REST API
 
@@ -118,4 +118,4 @@ public static IActionResult GetTemperature(
 
 <hr>
 
-In this step you added an Azure Function REST API to expose the temperature data. Now move on to the [next step](./7.ControlTheLEDThreshold.md) where you will configure the LED colour threshold using Device Twins.
+In this step you added an Azure Function REST API to expose the temperature data. Now move on to the [next step](./ControlTheLEDThreshold.md) where you will configure the LED colour threshold using Device Twins.

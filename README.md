@@ -74,14 +74,14 @@ This workshop is implemented in both C and C#. The code running on the MXChip is
 
 The steps for the workshop are in the [Steps](./Steps) folder.
 
-1. [Configure the MXChip board](./Steps/1.ConfigureTheBoard.md)
-2. [Configure Visual Studio Code](./Steps/2.ConfigureVSCode.md)
-3. [Show the temperature](./Steps/3.ShowingTheTemperature.md)
-4. [Send the temperature to Azure IoT Hub](./Steps/4.SendingTheTemperature.md)
-5. [Store the temperature using Azure Functions and Cosmos DB](./Steps/5.StoreTheTemperature.md)
-6. [Expose the temperature using Azure Functions](./Steps/6.ExposeTheTemperature.md)
-7. [Configure the LED colour threshold using Device Twins](./Steps/7.ControlTheLEDThreshold.md)
-8. [Clean up](./Steps/8.CleanUp.md)
+1. [Configure the MXChip board](./Steps/ConfigureTheBoard.md)
+2. [Configure Visual Studio Code](./Steps/ConfigureVSCode.md)
+3. [Show the temperature](./Steps/ShowingTheTemperature.md)
+4. [Send the temperature to Azure IoT Hub](./Steps/SendingTheTemperature.md)
+5. [Store the temperature using Azure Functions and Cosmos DB](./Steps/StoreTheTemperature.md)
+6. [Expose the temperature using Azure Functions](./Steps/ExposeTheTemperature.md)
+7. [Configure the LED colour threshold using Device Twins](./Steps/ControlTheLEDThreshold.md)
+8. [Clean up](./Steps/CleanUp.md)
 
 ### The code
 

@@ -1,6 +1,6 @@
-# 7 - Configure the LED colour threshold using Device Twins
+# Configure the LED colour threshold using Device Twins
 
-In the [previous step](./6.ExposeTheTemperature.md) you wrote an Azure Function with an HTTP trigger that returned the temperature for a given device. In this step you will configure the threshold for the LED colour using a Device Twin. This will be done using another HTTP trigger that accepts a JSON document sent as a POST containing the required threshold.
+In the [previous step](./ExposeTheTemperature.md) you wrote an Azure Function with an HTTP trigger that returned the temperature for a given device. In this step you will configure the threshold for the LED colour using a Device Twin. This will be done using another HTTP trigger that accepts a JSON document sent as a POST containing the required threshold.
 
 ## IoT Hub Device Twins
 
@@ -292,4 +292,4 @@ void setup() {
 
 <hr>
 
-In this step you added an Azure Function REST API to control the temperature threshold for the LED color. Now move on to the [next step](./8.CleanUp.md) where you will clean up the resources you have used.
+In this step you added an Azure Function REST API to control the temperature threshold for the LED color. Now move on to the [next step](./CleanUp.md) where you will clean up the resources you have used.

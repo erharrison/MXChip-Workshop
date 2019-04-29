@@ -1,6 +1,6 @@
-# 4 - Send the temperature to Azure IoT Hub
+# Send the temperature to Azure IoT Hub
 
-In the [previous step](./3.ShowingTheTemperature.md) you wrote some code in C to run on the MXChip board. This code checked the temperature and displayed it using the on-board screen and LED. In this step you will connect your board to Azure IoT Hub and send temperature data from the device to the cloud.
+In the [previous step](./ShowingTheTemperature.md) you wrote some code in C to run on the MXChip board. This code checked the temperature and displayed it using the on-board screen and LED. In this step you will connect your board to Azure IoT Hub and send temperature data from the device to the cloud.
 
 ## Configure Azure IoT Hub
 
@@ -57,7 +57,7 @@ To use this device with Azure IoT Hub you will need to configure an IoT Hub serv
 ### Connect to WiFi and Azure IoT Hub
 
 * Open the `device.ino` Arduino sketch file
-* In the `setup` method, start the WiFi connection. This will use the SSID and password you configured back in [step 1](./1.ConfigureTheBoard.md). You can read more about the WiFi API in the [documentation](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/wifi/).
+* In the `setup` method, start the WiFi connection. This will use the SSID and password you configured back in [step 1](./ConfigureTheBoard.md). You can read more about the WiFi API in the [documentation](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/wifi/).
 
   ```c
   void setup() {
