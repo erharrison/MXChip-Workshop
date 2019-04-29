@@ -62,7 +62,7 @@ To use Azure IoT Hub you will need an Azure subscription. If you don't have a su
 
 If you are a student aged 18 and up, or teacher and have an email address from an academic institution, you can sign up for the free Azure for Students offer at [azure.microsoft.com/free/students](https://azure.microsoft.com/free/students/?WT.mc_id=mxchipworkshop-github-jabenn). This gives you the same services and credit as the free account, but you don't need a credit card.
 
-At the time of writing the free account will give you US$200 of free credit to spend on what you like, 12 months of free services, plus a load of services that have tiers that are always free.
+At the time of writing the free account will give you US$200 of free credit to spend on what you like in the first 30 days ($100 for the student account), 12 months of free services, plus a load of services that have tiers that are always free.
 
 For this workshop you can use the free tier of IoT Hub. If you already have an Azure account you can use this, using a free tier IoT Hub.
 

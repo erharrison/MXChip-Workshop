@@ -55,31 +55,7 @@ Inside this file is a method called `Run`, decorated with a `FunctionName` attri
   double threshold = data.threshold;
   ```
 
-### Create a Cosmos DB collection
-
-By now the Cosmos DB account should be created.
-
-* From Visual Studio Code, select the *Azure* tab.
-
-* Expand the *COSMOS DB* section.
-
-* Expand your subscription.
-
-* Right-click on the account you just created and select *Create Database*.
-
-* Name the database `IoTData`.
-
-* Name the collection `Temperatures`.
-
-* Leave the partition key blank.
-
-* Leave the initial throughput as 400. This is the lowest tier and is free with the Azure free account.
-
-* Click *OK*
-
-Once created, you will be able to see the new collection in the *COSMOS DB* panel in the *Azure* tab.
-
-### Connect the Azure Function to the Cosmos DB collection
+### Connect the Azure Function to a Cosmos DB collection
 
 From Visual Studio Code, open the `Functions.csproj` file in the `Functions` folder. This is a .NET project file and from here you can add packages to bring in more SDKs, such as the one needed to interact with Cosmos DB.
 
@@ -124,7 +100,7 @@ Once the SDK is installed and in use by the project, the Azure Function can be w
                          ILogger log)
   ```
 
-  The `CosmosDBConnection` connection string setting will be retrieved from the Azure Function application settings, which will be set later in this step.
+  The `CosmosDBConnection` connection string setting will be retrieved from the Azure Function application settings, which will be set later in this step. The database name and collection name refer to a database and a collection you will create later in this step.
 
 * Set the output parameter to be a new `TemperatureItem` using the values from the message. This will create a document keyed off the device id and insert it into the collection. Subsequent messages will update the document in the collection.
 
@@ -136,6 +112,30 @@ Once the SDK is installed and in use by the project, the Azure Function can be w
     Id = deviceId
   };
   ```
+
+### Create a Cosmos DB collection
+
+By now the Cosmos DB account should be created.
+
+* From Visual Studio Code, select the *Azure* tab.
+
+* Expand the *COSMOS DB* section.
+
+* Expand your subscription.
+
+* Right-click on the account you just created and select *Create Database*.
+
+* Name the database `IoTData`.
+
+* Name the collection `Temperatures`.
+
+* Leave the partition key blank.
+
+* Leave the initial throughput as 400. This is the lowest tier and is free with the Azure free account.
+
+* Click *OK*
+
+Once created, you will be able to see the new collection in the *COSMOS DB* panel in the *Azure* tab.
 
 ## Deploy the Azure Function app
 
