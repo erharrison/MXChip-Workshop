@@ -43,7 +43,7 @@ Azure Functions can be [triggered by HTTP requests](https://docs.microsoft.com/a
     ...
   ```
 
-* Add a `CosmosDB` binding to the function. Use the same collection details as for the IoT Hub trigger, but set the `Id` to be the `{devicename}` and `PartitionKey` to be latest. Instead of being an output binding, this will make this parameter an input binding.
+* Add a `CosmosDB` binding to the function. Use the same collection details as for the IoT Hub trigger, but set the `Id` to be the `{devicename}`. Instead of being an output binding, this will make this parameter an input binding.
 
   ```cs
   public static IActionResult GetTemperature(
@@ -51,13 +51,12 @@ Azure Functions can be [triggered by HTTP requests](https://docs.microsoft.com/a
     [CosmosDB(databaseName: "IoTData",
               collectionName: "Temperatures",
               ConnectionStringSetting = "cosmosDBConnectionString",
-              PartitionKey = "Latest",
               Id = "{devicename}")] TemperatureItem temperatureItem,
     ILogger log)
     ...
   ```
 
-  This binding will search for a document inside the Cosmos DB collection with an Id that matches the `{devicename}` parameter and a partition key of `Latest`, essentially binding it to the REST resource from the URL. For example, if you issue a GET request to `https://MyTemperatureSensor.azurewebsites.net/api/temperature/MyDevice`, it will extract a document from the collection with the Id `MyDevice`. The parameter will then be that document.
+  This binding will search for a document inside the Cosmos DB collection with an Id that matches the `{devicename}` parameter, essentially binding it to the REST resource from the URL. For example, if you issue a GET request to `https://MyTemperatureSensor.azurewebsites.net/api/temperature/MyDevice`, it will extract a document from the collection with the Id `MyDevice`. The parameter will then be that document.
 
 * Inside the function return the document as an HTTP response.
 
@@ -75,7 +74,15 @@ Azure Functions can be [triggered by HTTP requests](https://docs.microsoft.com/a
   
   ![The dialog box asking if you want to overwrite the existing Azure Functions app](../Images/OverwriteFunctionApp.png)
 
-The function app will be deployed, and this should take a few seconds.
+  The function app will be deployed, and this should take a few seconds.
+
+* From Visual Studio Code, select the *Azure* tab.
+
+* Expand the *FUNCTIONS* section.
+
+* Expand your subscription.
+
+* Right-click on the function app you created earlier and select *Restart*.
 
 ## Test the API
 
@@ -102,7 +109,6 @@ public static IActionResult GetTemperature(
   [CosmosDB(databaseName: "IoTData",
             collectionName: "Temperatures",
             ConnectionStringSetting = "cosmosDBConnectionString",
-            PartitionKey = "Latest",
             Id = "{devicename}")] TemperatureItem temperatureItem,
   ILogger log)
 {

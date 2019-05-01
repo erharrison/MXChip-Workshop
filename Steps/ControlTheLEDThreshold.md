@@ -117,7 +117,17 @@ Once the SDK has been installed, it can be used to interact with Device Twins. T
   
   ![The dialog box asking if you want to overwrite the existing Azure Functions app](../Images/OverwriteFunctionApp.png)
 
-The function app will be deployed, and this should take a few seconds.
+  The function app will be deployed, and this should take a few seconds.
+
+* From Visual Studio Code, select the *Azure* tab.
+
+* Expand the *FUNCTIONS* section.
+
+* Expand your subscription.
+
+* Right-click on the function app you created earlier and select *Restart*.
+* 
+  The function app will be restarted, and this should take a few seconds.
 
 ### Add support for Device Twins to the MXChip
 

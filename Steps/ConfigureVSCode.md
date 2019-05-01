@@ -24,7 +24,7 @@ Visual Studio Code has a wealth of extensions that provide different capabilitie
 
   You will need to restart Visual Studio Code after installing this extension.
 
-* Search for the *Arduino* extension and install it.
+* Search for the *Arduino* extension and install it. Make sure to install the one from Microsoft as there is more than one extension called *Arduino*.
 
   ![The Arduino extension install page](../Images/InstallArduinoExtension.png)
 
@@ -59,6 +59,8 @@ Visual Studio Code has a wealth of extensions that provide different capabilitie
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
+  > If you haven't edited JSON files before, these are comma separated entries of key value pairs, with keys separated from values with a colon. You will need to add a comma to the end of the line before the inserted settings.
 
 * Open the command palette and select *Arduino: Board Manager*. Search for `MXChip` and install the latest version.
 

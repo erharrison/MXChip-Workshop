@@ -167,7 +167,15 @@ Once created, you will be able to see the new collection in the *COSMOS DB* pane
   
   ![The dialog box asking if you want to overwrite the existing Azure Functions app](../Images/OverwriteFunctionApp.png)
 
-The function app will be deployed, and this should take a few seconds.
+  The function app will be deployed, and this should take a few seconds.
+
+* From Visual Studio Code, select the *Azure* tab.
+
+* Expand the *FUNCTIONS* section.
+
+* Expand your subscription.
+
+* Right-click on the function app you created earlier and select *Restart*.
 
 ## Monitoring the data
 

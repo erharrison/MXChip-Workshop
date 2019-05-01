@@ -23,7 +23,6 @@ namespace IoTWorkbench
         public string Id {get; set;}
         public double Temperature {get; set;}
         public double Threshold {get; set;}
-        public string Type {get; set;}
 }
 
     public static class IoTHubTrigger1
@@ -50,8 +49,7 @@ namespace IoTWorkbench
             {
                 Temperature = temperature,
                 Threshold = threshold,
-                Id = deviceId,
-                Type = "Latest"
+                Id = deviceId
             };
         }
 
@@ -62,7 +60,6 @@ namespace IoTWorkbench
                                                    [CosmosDB(databaseName: "IoTData",
                                                              collectionName: "Temperatures",
                                                              ConnectionStringSetting = "cosmosDBConnectionString",
-                                                             PartitionKey = "Latest",
                                                              Id = "{devicename}")] TemperatureItem temperatureItem,
                                                    ILogger log)
         {
