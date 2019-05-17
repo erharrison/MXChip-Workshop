@@ -40,7 +40,7 @@ Inside this file is a method called `Run`, decorated with a `FunctionName` attri
   using Newtonsoft.Json;
   ```
 
-* Add code to the bottom of this function extract the device id from the message:
+* Add code to the bottom of this function to extract the device id from the message:
 
   ```cs
   var deviceId = message.SystemProperties["iothub-connection-device-id"].ToString();  
